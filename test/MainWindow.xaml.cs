@@ -25,7 +25,42 @@ namespace test
             InitializeComponent();
         }
 
+        Point LB1StartMousePos;
+        Point LB2StartMousePos;
+
         private void LB1_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            LB1StartMousePos = e.GetPosition(null);
+        }
+
+        private void LB2_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            LB2StartMousePos = e.GetPosition(null);
+        }
+
+        private void LB1_Drop(object sender, DragEventArgs e)
+        {
+            // This casts 'e.Data.GetData()' as a ListBoxItem and if it isn't null
+            // then the code will "execute" sort of. basically, listItem will always be 
+            // a ListBoxItem (atleast i think it will)
+            if (e.Data.GetData(DataFormats.FileDrop) is ListBoxItem listItem)
+            {
+                LB1.Items.Add(listItem);
+            }
+        }
+
+        private void LB2_Drop(object sender, DragEventArgs e)
+        {
+            // This casts 'e.Data.GetData()' as a ListBoxItem and if it isn't null
+            // then the code will "execute" sort of. basically, listItem will always be 
+            // a ListBoxItem (atleast i think it will)
+            if (e.Data.GetData(DataFormats.FileDrop) is ListBoxItem listItem)
+            {
+                LB2.Items.Add(listItem);
+            }
+        }
+
+        private void LB1_MouseMove(object sender, MouseEventArgs e)
         {
             Point mPos = e.GetPosition(null);
 
@@ -62,7 +97,7 @@ namespace test
             }
         }
 
-        private void LB2_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        private void LB2_MouseMove(object sender, MouseEventArgs e)
         {
             Point mPos = e.GetPosition(null);
 
@@ -96,28 +131,6 @@ namespace test
                     }
                 }
                 catch { }
-            }
-        }
-
-        private void LB1_Drop(object sender, DragEventArgs e)
-        {
-            // This casts 'e.Data.GetData()' as a ListBoxItem and if it isn't null
-            // then the code will "execute" sort of. basically, listItem will always be 
-            // a ListBoxItem (atleast i think it will)
-            if (e.Data.GetData(DataFormats.FileDrop) is ListBoxItem listItem)
-            {
-                LB1.Items.Add(listItem);
-            }
-        }
-
-        private void LB2_Drop(object sender, DragEventArgs e)
-        {
-            // This casts 'e.Data.GetData()' as a ListBoxItem and if it isn't null
-            // then the code will "execute" sort of. basically, listItem will always be 
-            // a ListBoxItem (atleast i think it will)
-            if (e.Data.GetData(DataFormats.FileDrop) is ListBoxItem listItem)
-            {
-                LB2.Items.Add(listItem);
             }
         }
     }

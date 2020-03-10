@@ -9,7 +9,8 @@
     <Grid>
         <ListBox x:Name="LB1" HorizontalAlignment="Left" Margin="10,10,0,10" Width="250" FontSize="20"
                  PreviewMouseLeftButtonDown="LB1_PreviewMouseLeftButtonDown"
-                 AllowDrop="True" Drop="LB1_Drop">
+                 AllowDrop="True" Drop="LB1_Drop"
+                 MouseMove="LB1_MouseMove">
             <ListBoxItem Content="LB1 Item 1"/>
             <ListBoxItem Content="LB1 Item 2"/>
             <ListBoxItem Content="LB1 Item 3"/>
@@ -18,7 +19,8 @@
         </ListBox>
         <ListBox x:Name="LB2" HorizontalAlignment="Right" Margin="0,10,10,10" Width="250" FontSize="20"
                  PreviewMouseLeftButtonDown="LB2_PreviewMouseLeftButtonDown"
-                 AllowDrop="True" Drop="LB2_Drop">
+                 AllowDrop="True" Drop="LB2_Drop"
+                 MouseMove="LB2_MouseMove">
             <ListBoxItem Content="LB2 Item 1"/>
             <ListBoxItem Content="LB2 Item 2"/>
             <ListBoxItem Content="LB2 Item 3"/>
